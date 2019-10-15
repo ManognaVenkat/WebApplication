@@ -1,0 +1,36 @@
+﻿@model WebApplication1.Models.movie
+@{
+    ViewBag.Title = "EditMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(a => a.MovieName)
+            @Html.TextBoxFor(a => a.MovieName, new { @class = "Form-Control" })
+            @Html.ValidationMessageFor(a => a.MovieName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(a => a.theatre)
+            @Html.DropDownListFor(a => a.theatre, ViewBag.theatre as SelectList, null, new { @class = "form-Control" })
+            @Html.ValidationMessageFor(a => a.theatre)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(a => a.Genres)
+            @Html.DropDownListFor(a => a.Genres, ViewBag.Genres as SelectList, null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(a => a.Genres)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" name=" cmdsubmit" value="submit" class="btn-primary" />
+        </div>
+
+    }
+</div>
+
+

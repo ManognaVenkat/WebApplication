@@ -1,0 +1,41 @@
+﻿@model List<WebApplication1.Models.PersonDetails>
+@{
+    ViewBag.Title = "PersonView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PersonView</h2>
+<p>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th> NAME</th>
+            <th>ID</th>
+            <th> GENDER</th>
+            <th> DATE OF BIRTH</th>
+        </tr>
+        @foreach (var C in Model)
+        {
+            <tr>
+                <td> @Html.ActionLink(C.PersonName, "Details", "Customer", new { id = C.id }, new { @class = "btn btn-Link" })</td>
+                <td> @C.id</td>
+                <td>@C.gender</td>
+                <td>@C.DateOfBirth</td>
+            </tr>
+
+        }
+    </table>
+</p>
+@*@if (Model != null)
+    {
+        <h2>@Model.PersonName</h2>
+        <ul>
+            <li> @Model.id</li>
+            <li>@Model.DateOfBirth</li>
+            <li>@Model.gender</li>
+        </ul>
+    }
+    else
+    {
+        <text> No Record Exists</text>
+    }*@
+

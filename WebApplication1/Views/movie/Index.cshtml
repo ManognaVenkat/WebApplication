@@ -1,0 +1,28 @@
+﻿@model List<WebApplication1.Models.movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h2> movieview</h2>
+<table class="table table-bordered" table- hover'>
+    <tr>
+        <th>
+            id
+        </th>
+        <th> moviename</th>
+        <th>GenreID</th>
+
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td> @m.id</td>
+
+            <td> @Html.ActionLink(m.MovieName, "Details", "Movie", new { id = m.id }, null)</td>
+            <td>@m.Genres.Id</td>
+        </tr>
+    }
+</table>

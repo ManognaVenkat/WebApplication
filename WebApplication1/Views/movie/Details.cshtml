@@ -1,0 +1,22 @@
+﻿@model WebApplication1.Models.movie
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+@if (Model != null)
+{
+    <h3>@Model.MovieName</h3>
+    <ul>
+        <li> Theatre name:@Model.theatre</li>
+        
+        <li>Genre Type: @Model.Genres.GenreType</li>
+    </ul>
+}
+else
+{
+    <text> norecords</text>
+}
+<h3> @Html.ActionLink("Back to MovieList","Index","Movie",null)</h3>

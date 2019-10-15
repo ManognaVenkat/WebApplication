@@ -1,0 +1,38 @@
+﻿@model List<WebApplication1.ViewModel.Customer>
+@{
+    ViewBag.Title = "CustomerView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>CustomerView</h2>
+<h3> @Html.ActionLink("NewCustomer","Create","Customer")</h3>
+<table class="table table-bordered table- hover">
+    <tr>
+        <th>
+            id
+        </th>
+        <th> name</th>
+        <th> Membershipid</th>
+        <th> AnyChanges click here</th>
+      
+    </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td> @c.Id</td>
+            <td> @Html.ActionLink(c.Name,"Details1","Customer",new { id = c.Id },null)</td>
+            <td>
+                @c.MembershipType.ID
+            </td>
+            <td> @Html.ActionLink("EditCustomer", "EditCustomer", "Customer",new { id = c.Id },null)</td>
+            <td> @Html.ActionLink("Delete","DeleteConfirmed","Customer", new { id = c.Id }, null)</td>
+            
+        </tr>
+    }
+</table>
+<h2>
+
+
+
+
+
+
